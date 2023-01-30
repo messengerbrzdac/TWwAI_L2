@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
-import mongoConverter from '../service/mongoConverter';
-import * as _ from "lodash";
+import mongoConverter from '../service/mongoConverter.js';
+//import * as _ from 'lodash';
 
 const paramSchema = new mongoose.Schema({
     temp: {type: String},
@@ -18,16 +18,12 @@ const ParamModel = mongoose.model('params', paramSchema);
 
 async function query() {
     const result = await ParamModel.find({});
-    {
-        if (result) {
-            return mongoConverter(result);
-        }
-    }
- }
+    return result;
+}
 
 async function get(id) {
     return ParamModel.findOne({_id: id}).then(function (result) {
-        if (result) {
+        if(result) {
             return mongoConverter(result);
         }
     });
@@ -35,13 +31,12 @@ async function get(id) {
 
 async function getLast() {
     return ParamModel.findOne().sort({'_id':-1}).limit(1).then(function (result) {
-        if (result) {
+        if(result) {
             return mongoConverter(result);
         }
     })
 }
- 
- 
+
 export default {
     query: query,
     get: get,

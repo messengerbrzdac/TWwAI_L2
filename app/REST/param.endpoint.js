@@ -1,20 +1,11 @@
-import business from '../business/business.container';
-import auth from '../middleware/auth';
-import applicationException from "../service/applicationException";
+import business from '../business/business.container.js';
+import auth from '../middleware/auth.js';
+import applicationException from "../service/applicationException.js";
 
 const paramEndpoint = (router) => {
     router.get('/api/params', async (request, response, next) => {
         try {
             let result = await business.getParamManager().query();
-            response.status(200).send(result);
-        } catch (error) {
-            applicationException.errorHandler(error, response);
-        }
-    });
-
-    router.get('/api/params/:id', async (request, response, next) => {
-        try {
-            let result = await business.getParamManager().get(request.params.id);
             response.status(200).send(result);
         } catch (error) {
             applicationException.errorHandler(error, response);
@@ -30,7 +21,14 @@ const paramEndpoint = (router) => {
         }
     });
 
-
+    router.get('/api/params/:id', async (request, response, next) => {
+        try {
+            let result = await business.getParamManager().get(request.params.id);
+            response.status(200).send(result);
+        } catch (error) {
+            applicationException.errorHandler(error, response);
+        }
+    });
 };
 
 export default paramEndpoint;

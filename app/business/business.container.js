@@ -1,8 +1,7 @@
 'use strict';
 
-import userManager from './user.manager';
-import paramManager from './param.manager';
-
+import userManager from './user.manager.js';
+import paramManager from './param.manager.js';
 
 function getter(manager, request) {
   return function () {

@@ -28,5 +28,6 @@
     "vision": "^4.1.1"
   },
   "author": "Darek",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }

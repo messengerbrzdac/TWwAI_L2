@@ -6,7 +6,7 @@ export function Data() {
 
     useEffect(() => {
         const fetchAir = async () => {  
-            const res = await fetch("http://localhost:42205/api/params/last")
+            const res = await fetch("http://localhost:3001/api/params/last")
             const dataRes = await res.json();
             chartDataSet(dataRes);
         }
@@ -39,4 +39,4 @@ const styles = {
     float: 'left',
     height: '100vh',
     width: '220px'
- };
+};

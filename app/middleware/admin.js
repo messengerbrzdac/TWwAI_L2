@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import config from "../config";
+import config from "../config.js";
 
 const admin = (req, res, next) => {
   // 401 Unauthorized

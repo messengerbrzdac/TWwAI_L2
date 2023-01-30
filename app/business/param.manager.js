@@ -1,4 +1,4 @@
-import paramDAO from '../DAO/paramDAO';
+import paramDAO from '../DAO/paramDAO.js';
 
 function create(context) {
     async function query() {
@@ -21,8 +21,6 @@ function create(context) {
             return result;
         }
     }
-     
-     
     return {
         query: query,
         get: get,

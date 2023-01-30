@@ -1,5 +1,5 @@
-import paramEndpoint from './param.endpoint';
-import userEndpoint from './user.endpoint';
+import paramEndpoint from './param.endpoint.js';
+import userEndpoint from './user.endpoint.js';
 
 const routes = function (app) {
     paramEndpoint(app);
